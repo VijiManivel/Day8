@@ -1,0 +1,16 @@
+var request = new XMLHttpRequest();
+
+request.open('GET','https://restcountries.com/v3.1/all',true);
+
+request.send();
+
+request.onload = function(){
+  var data= JSON.parse(request.response);
+
+  // display flags of all countries from data where population is less than 2L
+  
+  let result= data.filter((element)=>{
+      return element.population<200000;
+  })
+  console.log(result);
+  }
